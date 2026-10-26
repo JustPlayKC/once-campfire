@@ -28,6 +28,13 @@ You'll be able to access the app at http://localhost:3000.
 
 On first run you'll be guided through creating your admin account, and you can sign in with that account from then on.
 
+For source debugging, `GET /debug/source` lists available files as JSON, and
+`GET /debug/source?path=app/controllers/application_controller.rb` returns a file
+as plain text. This endpoint is available without signing in, only in development.
+It includes Ruby, ERB, JavaScript, and CSS files under `app/`, Ruby files under
+`lib/`, and `config/routes.rb`. Credentials, environment files, runtime data, and
+symlinks are excluded.
+
 Note that Campfire needs Redis (for Action Cable, caching, and background jobs), so if you've restarted your machine or stopped the container, `docker start campfire-redis` will bring it back.
 
 ### Web Push notifications
