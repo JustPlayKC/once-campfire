@@ -101,4 +101,6 @@ Rails.application.routes.draw do
   get "service-worker" => "pwa#service_worker"
 
   get "up" => "rails/health#show", as: :rails_health_check
+
+  get "debug/source", to: "debug/sources#show" if Rails.env.development?
 end
